@@ -83,8 +83,8 @@ if(FOONATHAN_MEMORY_BUILD_TOOLS)
             DEPENDS foonathan_memory_node_size_debugger
             VERBATIM)
 else()
-    message(WARNING "cannot generate container_node_sizes_impl.hpp, node size information will be unavailable")
-    file(WRITE  ${CMAKE_CURRENT_BINARY_DIR}/container_node_sizes_impl.hpp "#define FOONATHAN_MEMORY_NO_NODE_SIZE")
+    message(WARNING "Use pebuild container_node_sizes_impl.hpp")
+    file(COPY ${FOONATHAN_MEMORY_SOURCE_DIR}/prebuild/container_node_sizes_impl.hpp DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 add_library(foonathan_memory ${detail_header} ${header} ${src})
